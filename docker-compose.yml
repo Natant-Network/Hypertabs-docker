@@ -1,0 +1,8 @@
+version: "2"
+services:
+  hypertabs:
+    restart: unless-stopped
+    image: "motortruck1221/hypertabs"
+    ports:
+    #IMPORTANT: DO NOT CHANGE THE 8080 PART ONLY CHANGE THE YOUR PORT HERE PART
+      - your port here:8080
