@@ -1,0 +1,25 @@
+name: Sync Fork
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 13 * * 1"
+  
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Sync and merge upstream repository with your current repository
+        uses: dabreadman/sync-upstream-repo@v1.3.0
+        with:
+          upstream_repo: https://github.com/amethystnetwork-dev/Hypertabs
+          upstream_branch: main
+          downstream_branch: main
+          token: ${{ secrets.GITHUB_TOKEN }}
+#           fetch_args: # optional, default is 
+#           merge_args: # optional, default is 
+#           push_args: # optional, default is 
+#           spawn_logs: 
